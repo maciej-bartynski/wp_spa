@@ -1,0 +1,85 @@
+#navigation {
+    background: $light;
+    height: 766px;//70.92vh;
+    width: 698px;//64.62vh;
+    border-radius: 50%;
+    overflow: hidden;
+    padding-left: 455px;//42.5vh;
+    padding-top: 176px;//22.97vh;
+    position: absolute;
+    top: -176px;//-22.97vh;
+    left: -455px; //-42.5vh;
+    z-index: 10;
+
+    transition: all 500ms;
+    will-change: transform, top, left;
+
+    &.navi-hidden {
+        transform: rotate(-90deg);
+        top: -400px; 
+        left: -670px;
+    }
+
+    -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+    -moz-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+    box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+    
+    .navigation--container{
+        list-style: none;
+        display: block;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    .navigation--item {
+        border-bottom: solid 1px $bgcolo;
+        border-left: solid 1px transparent;
+        @include serif;
+        font-size: 20px;
+        font-weight: 400;
+        color: $blue;
+        display: flex;
+        justify-content: flex-start;
+       
+        padding: 5% 10%;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+        width: 100%;
+        
+        &:hover {
+            border-bottom: solid 1px $lightblue;
+            border-left: solid 5px $lightblue;
+        }
+
+        &.active {
+            border-bottom: solid 1px $blue;
+            border-left: solid 10px $blue;
+        }
+
+    }
+
+    #angle-up,
+    #angle-down {
+        position: absolute;
+        bottom: 40px;
+        
+        font-size: 20px;
+        color: $blue;
+        //width: 100%;
+        cursor: pointer;
+        display: block;
+        user-select: none;
+        .ico{
+            cursor: pointer;
+        }
+    }
+    #angle-up{
+        left: 10px;
+    }
+    #angle-down{
+        left: -150px;
+    }
+}

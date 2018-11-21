@@ -1,0 +1,11 @@
+@import './mixins.scss';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background: $bgcolo;
+    margin: 0;
+}

@@ -1,0 +1,69 @@
+#background {
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    position: fixed;
+    top: 0;
+    left:0;
+    overflow: hidden;
+    z-index: -1;
+
+    #background_a {
+        position: absolute;
+        top: 100px;
+        right: 10vw;
+        z-index: 1;
+        width: 80vw;
+        min-width: 900px;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        #svg-object {
+           width: 100%;
+            height: auto;
+        }
+        svg {
+            width: 100%;
+            height: auto;
+        }
+        opacity: 0.15;    
+        
+    }
+}
+
+#background {
+    #background_shadow-a {
+        z-index: 4;
+        position: absolute;
+        bottom: -60vw;
+        left: -60vw;
+        width: 120vw;
+        height: 120vw;
+        border-radius: 50%;
+        background: radial-gradient(circle at 50% 50%, $light 15%, transparent 65%);
+    }
+    #background_shadow-b {
+        z-index: 3;
+        position: absolute;
+        bottom: -50vw;
+        right: -50vw;
+        width: 100vw;
+        height: 100vw;
+        border-radius: 50%;
+        background: radial-gradient(circle at 50% 50%, rgba(84, 152, 255, 0.51) 20%, rgba(255, 255, 255, 0) 70%);
+        animation: second-blob 15000ms infinite linear;
+    }
+}
+
+@keyframes second-blob {
+    from {
+        bottom: -50vw;
+    }
+    50% {
+        bottom: -100vw;
+    }
+    to {
+        bottom: -50vw;
+    }
+}

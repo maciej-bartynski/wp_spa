@@ -1,0 +1,5 @@
+@import './vars.scss';
+
+@mixin serif {
+    font-family: $serif;
+}

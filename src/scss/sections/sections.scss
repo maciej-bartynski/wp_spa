@@ -1,0 +1,144 @@
+.dummy-sec {
+    padding: 40px;
+    color: $blue;
+    @include serif;
+
+    h1 {
+        color: $blue;
+        @include serif;
+        font-size: 60px;
+    }
+
+    p {
+        width: 50%;
+        color: $blue;
+        @include serif;
+        font-size: 30px;
+    }
+
+    .tiltbelt {
+        display: flex;
+        flex-wrap: wrap;
+
+        .tilt {
+            width: 300px;
+            height: 400px;
+            background: $light;
+            -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+            -moz-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+            box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+            border-radius: 4px;
+        }
+    }
+
+    ul {
+        list-style: none;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+
+        li {
+            list-style: none;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            margin-top: 50px;
+            background: $light;
+            -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+            -moz-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+            box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+            border-radius: 4px;
+        }
+    }
+}
+
+
+#header01 {
+    min-height: 100vh;
+
+    h1 {
+        margin: 0;
+        padding: 0;
+        margin-top: 10vh;
+    }
+
+    #personal-panel {
+        margin-top: 10vh;
+        position: relative;
+        width: 300px;
+        height: 100px;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 33.33%;
+            height: 100%;
+            background: $blue;
+            border: solid 5px $blue;
+            border-radius: 50%;
+        }
+        .personal-panel--wrapper {
+
+            -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.15);
+            -moz-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.15);
+            box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.15);
+
+            z-index: 0;
+            position: absolute;
+            top: 0;
+            left: 50px;
+            height: 100%;
+            width: calc(100% - 50px);
+            border-top-right-radius: 16% 50%;
+            border-bottom-right-radius: 16% 50%;
+            background: $lightblue;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            overflow: hidden;
+        }
+        .personal-panel--item {
+            width: 105%;
+            height: 33.33%;
+            background: $lightblue;
+            padding-left: 70px;
+            border-top: solid 1px $blue;
+            a {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                user-select: none;
+                color: $light;
+                text-decoration: none;
+            }
+            &:hover {
+                background: linear-gradient(rgba(0, 102, 255, 0.7) 1%, $lightblue 130%);
+            }
+        }
+    }
+
+    #description-panel {
+        margin-top: 10vh;
+        width: 400px;
+        p {
+            margin: 0;
+            padding: 0;
+            text-align: left;
+            font-size: 35px;
+            width: 100%;
+
+            &:first-of-type {
+                text-align: center;
+                font-size: 23px;
+            }
+            &:last-of-type{
+                text-align: right;
+                font-size: 23px;
+            }
+        }
+    }
+}
