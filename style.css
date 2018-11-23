@@ -9,45 +9,29 @@ body {
 #background {
   width: 100%;
   height: 100vh;
-  position: absolute;
+  min-height: 600px;
+  position: fixed;
+  top: 0;
+  left: 0;
   overflow: hidden;
   z-index: -1; }
   #background #background_a {
     position: absolute;
-    top: 10vh;
-    left: 10vw;
+    top: 100px;
+    right: 10vw;
     z-index: 1;
     width: 80vw;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0.15; }
-    #background #background_a svg {
-      width: 100%;
-      height: auto; }
-  #background #background_b {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    width: 50vw;
+    min-width: 900px;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0.3; }
-    #background #background_b svg {
+    opacity: 0.15; }
+    #background #background_a #svg-object {
       width: 100%;
       height: auto; }
-  #background #background_c {
-    position: absolute;
-    top: -30vw;
-    right: -30vw;
-    z-index: 3;
-    opacity: 0.4; }
-    #background #background_c svg {
-      width: 100vw;
+    #background #background_a svg {
+      width: 100%;
       height: auto; }
 
 #background #background_shadow-a {
@@ -99,6 +83,7 @@ body {
   position: absolute;
   top: -176px;
   left: -455px;
+  z-index: 10;
   transition: all 500ms;
   will-change: transform, top, left;
   box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16); }
@@ -133,6 +118,9 @@ body {
             user-select: none;
     width: 100%; }
     #navigation .navigation--item:hover {
+      border-bottom: solid 1px #5498FF;
+      border-left: solid 5px #5498FF; }
+    #navigation .navigation--item.active {
       border-bottom: solid 1px #0066ff;
       border-left: solid 10px #0066ff; }
   #navigation #angle-up,
@@ -154,3 +142,170 @@ body {
     left: 10px; }
   #navigation #angle-down {
     left: -150px; }
+
+main#sections--wrapper {
+  width: 75vw;
+  height: 15vw;
+  position: fixed;
+  left: 12.5vw;
+  top: 1vw;
+  z-index: 2;
+  transition: top 700ms ease;
+  display: none; }
+
+#sections-blob {
+  width: 20vw;
+  height: 15vw;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  transition: left 700ms;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0px 0px 20px 20px rgba(0, 102, 255, 0.16); }
+  #sections-blob #sections-slider {
+    transition: left 700ms;
+    width: 100vw;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 100%;
+    position: relative;
+    top: 0;
+    left: 0; }
+    #sections-blob #sections-slider .scrolling-state {
+      position: relative; }
+
+.section-content--wrapper {
+  width: 100vw;
+  height: 70vw;
+  overflow: hidden;
+  -webkit-transform: scale(0.1);
+          transform: scale(0.1);
+  position: absolute;
+  top: -30vw;
+  left: -40vw;
+  background: linear-gradient(rgba(0, 102, 255, 0.16) 1%, transparent 130%); }
+
+#current-section-container {
+  width: 100%;
+  min-height: 100vh;
+  padding-left: 300px;
+  z-index: 0;
+  transition: all 500ms; }
+  #current-section-container .section-content--wrapper {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    width: 100%;
+    height: auto;
+    position: static;
+    background: transparent; }
+
+.dummy-sec {
+  padding: 40px;
+  color: #0066ff;
+  font-family: "Roboto Slab", serif; }
+  .dummy-sec h1 {
+    color: #0066ff;
+    font-family: "Roboto Slab", serif;
+    font-size: 60px; }
+  .dummy-sec p {
+    width: 50%;
+    color: #0066ff;
+    font-family: "Roboto Slab", serif;
+    font-size: 30px; }
+  .dummy-sec .tiltbelt {
+    display: flex;
+    flex-wrap: wrap; }
+    .dummy-sec .tiltbelt .tilt {
+      width: 300px;
+      height: 400px;
+      background: #fff;
+      box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+      border-radius: 4px; }
+  .dummy-sec ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0; }
+    .dummy-sec ul li {
+      list-style: none;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      margin-top: 50px;
+      background: #fff;
+      box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+      border-radius: 4px; }
+
+#header01 {
+  min-height: 100vh; }
+  #header01 h1 {
+    margin: 0;
+    padding: 0;
+    margin-top: 10vh; }
+  #header01 #personal-panel {
+    margin-top: 10vh;
+    position: relative;
+    width: 300px;
+    height: 100px; }
+    #header01 #personal-panel img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 33.33%;
+      height: 100%;
+      background: #0066ff;
+      border: solid 5px #0066ff;
+      border-radius: 50%; }
+    #header01 #personal-panel .personal-panel--wrapper {
+      box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.15);
+      z-index: 0;
+      position: absolute;
+      top: 0;
+      left: 50px;
+      height: 100%;
+      width: calc(100% - 50px);
+      border-top-right-radius: 16% 50%;
+      border-bottom-right-radius: 16% 50%;
+      background: #5498FF;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      overflow: hidden; }
+    #header01 #personal-panel .personal-panel--item {
+      width: 105%;
+      height: 33.33%;
+      background: #5498FF;
+      padding-left: 70px;
+      border-top: solid 1px #0066ff; }
+      #header01 #personal-panel .personal-panel--item a {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+        color: #fff;
+        text-decoration: none; }
+      #header01 #personal-panel .personal-panel--item:hover {
+        background: linear-gradient(rgba(0, 102, 255, 0.7) 1%, #5498FF 130%); }
+  #header01 #description-panel {
+    margin-top: 10vh;
+    width: 400px; }
+    #header01 #description-panel p {
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      font-size: 35px;
+      width: 100%; }
+      #header01 #description-panel p:first-of-type {
+        text-align: center;
+        font-size: 23px; }
+      #header01 #description-panel p:last-of-type {
+        text-align: right;
+        font-size: 23px; }
