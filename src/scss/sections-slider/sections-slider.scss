@@ -1,58 +1,44 @@
-main#sections--wrapper {
-    width: 75vw;
-    height: 15vw;
-    position: fixed;
-    left: 12.5vw;
-    top: 1vw;
-    z-index: 2;
-    transition: top 700ms ease;
-    display: none;
-}
-
-#sections-blob {
-    width: 20vw;
-    height: 15vw;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.sections-wrapper {
+    width: 100%;
+    min-height: 100vh;
     overflow: hidden;
-    transition: left 700ms;
-
-    
-    background: rgba(255, 255, 255, 0.85);
-    -webkit-box-shadow: 0px 0px 20px 20px rgba(0, 102, 255, 0.16);
-    -moz-box-shadow: 0px 0px 20px 20px rgba(0, 102, 255, 0.16);
-    box-shadow: 0px 0px 20px 20px rgba(0, 102, 255, 0.16);
-    #sections-slider {
-        transition: left 700ms;
-        width: 100vw;
-        height: 100%;
-        display: grid;
-        grid-template-rows: 100%;
-        //it's automatic:
-        //grid-template-columns: repeat(6, 16.66%);
-
-        position: relative;
+    position: relative;
+   
+     
+    .sections-wrapper_item {
+        overflow: hidden;
+        position: absolute;
         top: 0;
         left: 0;
+        width: 20vw;
+        height: 20vw;
+        border-bottom-right-radius: 100%;
+        display: none;
+        transition: width 1000ms, height 1000ms;
+        z-index: -1;
+        &.sections-wrapper_item--bigger {
+            width: 100vw;
+            height: 100vw;
+        }
 
-        .scrolling-state {
-            position: relative;
-           
+        &.sections-wrapper_item--shadow {
+            -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+            -moz-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+            box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+            z-index: 5;
+        }
+
+        &.sections-wrapper_item--active {
+            width: 100vw;
+            height: 100vw;
+            -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0);
+            -moz-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0);
+            box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0);
+        }
+        .sections-wrapper_content{
+            display: none;
+            width: 100vw;
+            position: absolute;
         }
     }
-}
-
-
-.section-content--wrapper {
-    width: 100vw;
-    height: 70vw;
-    overflow: hidden;
-    transform: scale(0.1);
-    position: absolute;
-    top: -30vw;
-    left: -40vw;
-
-    background: linear-gradient(rgba(0, 102, 255, 0.16) 1%, transparent 130%);
 }
