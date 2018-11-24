@@ -4,7 +4,9 @@
 
 body {
   background: #eeeeee;
-  margin: 0; }
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden; }
 
 #background {
   width: 100%;
@@ -18,9 +20,9 @@ body {
   #background #background_a {
     position: absolute;
     top: 100px;
-    right: 10vw;
+    right: 10%;
     z-index: 1;
-    width: 80vw;
+    width: 80%;
     min-width: 900px;
     height: auto;
     display: flex;
@@ -81,17 +83,30 @@ body {
   padding-left: 455px;
   padding-top: 176px;
   position: absolute;
-  top: -176px;
-  left: -455px;
   z-index: 10;
   transition: all 500ms;
   will-change: transform, top, left;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  top: -400px;
+  left: -670px;
   box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16); }
   #navigation.navi-hidden {
-    -webkit-transform: rotate(-90deg);
-            transform: rotate(-90deg);
-    top: -400px;
-    left: -670px; }
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+    top: -176px;
+    left: -455px; }
+  @media screen and (min-width: 900px) {
+    #navigation {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+      top: -176px;
+      left: -455px; }
+      #navigation.navi-hidden {
+        -webkit-transform: rotate(-90deg);
+                transform: rotate(-90deg);
+        top: -400px;
+        left: -670px; } }
   #navigation .navigation--container {
     list-style: none;
     display: block;
@@ -146,7 +161,6 @@ body {
 .sections-wrapper {
   width: 100%;
   min-height: 100vh;
-  overflow: hidden;
   position: relative; }
   .sections-wrapper .sections-wrapper_item {
     overflow: hidden;
@@ -154,21 +168,27 @@ body {
     top: 0;
     left: 0;
     width: 20vw;
-    height: 20vw;
+    height: 20vh;
     border-bottom-right-radius: 100%;
     display: none;
-    transition: width 1000ms, height 1000ms;
-    z-index: -1; }
-    .sections-wrapper .sections-wrapper_item.sections-wrapper_item--bigger {
-      width: 100vw;
-      height: 100vw; }
-    .sections-wrapper .sections-wrapper_item.sections-wrapper_item--shadow {
-      box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
-      z-index: 5; }
+    transition: width 3000ms, height 1500ms;
+    z-index: 2; }
+    @media screen and (min-width: 900px) {
+      .sections-wrapper .sections-wrapper_item.sections-wrapper_item--bigger {
+        width: 100vw;
+        height: 100vh; } }
+    @media screen and (min-width: 900px) {
+      .sections-wrapper .sections-wrapper_item.sections-wrapper_item--shadow {
+        box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+        z-index: 5;
+        background: rgba(238, 238, 238, 0.85); } }
     .sections-wrapper .sections-wrapper_item.sections-wrapper_item--active {
-      width: 100vw;
-      height: 100vw;
-      box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0); }
+      width: 100%;
+      height: unset;
+      overflow: visible;
+      z-index: 1;
+      border-bottom-right-radius: 0;
+      position: relative; }
     .sections-wrapper .sections-wrapper_item .sections-wrapper_content {
       display: none;
       width: 100vw;

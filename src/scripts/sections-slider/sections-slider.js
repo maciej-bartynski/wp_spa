@@ -9,31 +9,36 @@ class BlobMovements {
         this.navi = jquery('.navigation--container');
 
         this.isMouseOver=false;
-               
-        //this.blob = jquery('#sections-blob');
-        //this.container = jquery('#sections--wrapper');
-        //this.naviItems = document.querySelectorAll('.navigation--item');
-        //this.scrollingState = document.querySelectorAll('.scrolling-state');
-        //this.currentSectionContainer = document.querySelector('#current-section-container');
-        //this.currentlyDispalyedNum=null;
+        this.currentSection=null;
 
-        //this.amountOfCells;
-        //this.sliderStep;
-        //this.setScrollingStages();
-        
-        //this.timer;
-        //this.containerHidden=true;
-        //this.onMouseOver();
-
-        //ini:
-        //this.showTheSec(0);
         this.showBlobOnMouseOverNaviItem = this.showBlobOnMouseOverNaviItem.bind(this);
         this.hideBlobOnMouseOutNaviItem = this.hideBlobOnMouseOutNaviItem.bind(this);
+        this.changeSectionOnClickOnNaviItem = this.changeSectionOnClickOnNaviItem.bind(this);
         this.checkIfMouseIsOverNav();
         this.mouseOverDispatcher();
+        this.clickDispatchter();
+
+        this.changeSectionOnClickOnNaviItem(0, true);
     }
 
+    
+
     //events
+    clickDispatchter(){
+        let dispatchingContext = this.changeSectionOnClickOnNaviItem;
+        let naviItems = this.naviItems;
+        this.naviItems.each(
+            function (index) {
+                let currentItem = jquery(this);
+                currentItem.click(() => {
+                    naviItems.removeClass('active');
+                    currentItem.addClass('active');
+                    dispatchingContext(index);
+                });
+            }
+        );
+    }
+
     mouseOverDispatcher(){
         let dispatchingContext = this.showBlobOnMouseOverNaviItem;
         let dispatchingContextB = this.hideBlobOnMouseOutNaviItem;
@@ -48,11 +53,14 @@ class BlobMovements {
         );
     }
 
+    //methods
+
     showBlobOnMouseOverNaviItem(num){
-        //if is mouse over, bigger all
+        let currentSection = this.currentSection;
         let isMouseHere = this.isMouseOver;
         this.sectionsItem.each(
             function(idx){  
+                if (currentSection === idx )return true;
                 let currentItem = jquery(this);
                 if(idx===num){
                     currentItem.addClass('sections-wrapper_item--shadow');
@@ -72,7 +80,9 @@ class BlobMovements {
     }
 
     hideBlobOnMouseOutNaviItem(num){
+        let currentSection = this.currentSection;
         this.sectionsItem.each(function (index) {
+            if (currentSection===index)return true;
             let currentItem = jquery(this);
             index===num?currentItem.find('.sections-wrapper_content').css('display', 'none'):null;
             currentItem.removeClass('sections-wrapper_item--shadow');
@@ -82,14 +92,38 @@ class BlobMovements {
     checkIfMouseIsOverNav (){
         this.navi.mouseleave(()=>{
             this.isMouseOver=false;
-            console.log('over')
+            let currentSection = this.currentSection;
             this.sectionsItem.each(
                 function(index){
-                    jquery(this).fadeOut(100);
-                    jquery(this).removeClass('sections-wrapper_item--bigger');
+                    if (index!==currentSection){
+                        jquery(this).fadeOut(100);
+                        jquery(this).removeClass('sections-wrapper_item--bigger');
+                    }
                 }
             );
         });
+    }
+
+    changeSectionOnClickOnNaviItem(num, ini=null){
+        let currentSectionSet = (x)=>{this.currentSection=x};
+        this.sectionsItem.each(function (index) {
+            let currentItem = jquery(this);
+            currentItem.removeClass("sections-wrapper_item--active");
+            currentItem.removeClass('sections-wrapper_item--shadow');
+            currentItem.removeClass("sections-wrapper_item--bigger");
+            if (index === num) {
+                currentSectionSet(num);
+                currentItem.addClass('sections-wrapper_item--active');
+                if (ini) {
+                    currentItem.fadeIn(1);
+                    currentItem.find('.sections-wrapper_content').fadeIn(100);
+                }
+                console.log(ini)
+                return true;
+            }
+            currentItem.fadeOut(1);
+        });
+        this.isMouseOver =false;
     }
 }
 

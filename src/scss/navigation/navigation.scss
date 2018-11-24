@@ -7,17 +7,30 @@
     padding-left: 455px;//42.5vh;
     padding-top: 176px;//22.97vh;
     position: absolute;
-    top: -176px;//-22.97vh;
-    left: -455px; //-42.5vh;
     z-index: 10;
 
     transition: all 500ms;
     will-change: transform, top, left;
 
+    transform: rotate(-90deg);
+    top: -400px;
+    left: -670px;
+
     &.navi-hidden {
-        transform: rotate(-90deg);
-        top: -400px; 
-        left: -670px;
+        transform: rotate(0);
+        top: -176px;
+        left: -455px;
+    }
+
+    @media screen and (min-width: 900px) {
+        transform: rotate(0);
+        top: -176px;
+        left: -455px;
+        &.navi-hidden {
+            transform: rotate(-90deg);
+            top: -400px;
+            left: -670px;
+        }
     }
 
     -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
@@ -33,6 +46,7 @@
         height: 100%;
         position: relative;
     }
+
     .navigation--item {
         border-bottom: solid 1px $bgcolo;
         border-left: solid 1px transparent;
@@ -68,7 +82,7 @@
         
         font-size: 20px;
         color: $blue;
-        //width: 100%;
+       
         cursor: pointer;
         display: block;
         user-select: none;

@@ -1,7 +1,7 @@
 .sections-wrapper {
     width: 100%;
     min-height: 100vh;
-    overflow: hidden;
+    //overflow: hidden;
     position: relative;
    
      
@@ -11,29 +11,35 @@
         top: 0;
         left: 0;
         width: 20vw;
-        height: 20vw;
+        height: 20vh;
         border-bottom-right-radius: 100%;
         display: none;
-        transition: width 1000ms, height 1000ms;
-        z-index: -1;
+        transition: width 3000ms, height 1500ms;
+        z-index: 2;
         &.sections-wrapper_item--bigger {
-            width: 100vw;
-            height: 100vw;
+            @media screen and (min-width: 900px){
+                  width: 100vw;
+                  height: 100vh;
+            }
         }
 
         &.sections-wrapper_item--shadow {
-            -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
-            -moz-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
-            box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
-            z-index: 5;
+            @media screen and (min-width: 900px){
+                 -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+                 -moz-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+                 box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0.16);
+                 z-index: 5;
+                 background: rgba(238, 238, 238, 0.85);
+            }
         }
 
         &.sections-wrapper_item--active {
-            width: 100vw;
-            height: 100vw;
-            -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0);
-            -moz-box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0);
-            box-shadow: 10px 10px 20px 0px rgba(0, 102, 255, 0);
+            width: 100%;
+            height: unset;
+            overflow: visible;
+            z-index: 1;
+            border-bottom-right-radius: 0;
+            position: relative;
         }
         .sections-wrapper_content{
             display: none;

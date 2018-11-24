@@ -9,10 +9,10 @@ class Navigation {
 
     toggleNavigation(){
         this.angleUp.click(()=>{
-            this.navi.addClass('navi-hidden');
+            this.navi.toggleClass('navi-hidden');
         });
         this.angleDown.click(() => {
-            this.navi.removeClass('navi-hidden');
+            this.navi.toggleClass('navi-hidden');
         });
     }
 }
