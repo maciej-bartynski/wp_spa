@@ -1,0 +1,33 @@
+.slider {
+    @media screen and (min-width: 900px){
+        position: relative;
+        width: 100% !important;
+        .slider_overflow {
+            overflow: visible;
+            width: 100% !important;
+            .slider_gallery {
+                list-style: none;
+                padding: 0 1%;
+                @media screen and (min-width: 1200px) {
+                    padding: 0 5%;
+                };
+                @media screen and (min-width: 1500px) {
+                    padding: 0 7.5%;
+                };
+                margin: 0;
+                height: auto;
+                display: flex;
+                flex-wrap: wrap;
+                position: static;
+                width: 100%!important;
+                transition: none;
+                .slider_item {
+                   
+                }
+            }
+        }
+        .slider_dots-switch, .slider_angle-switch {
+            display: none;
+        }
+    }
+}

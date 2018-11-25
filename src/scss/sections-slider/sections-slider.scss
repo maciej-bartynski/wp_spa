@@ -1,7 +1,6 @@
 .sections-wrapper {
     width: 100%;
     min-height: 100vh;
-    //overflow: hidden;
     position: relative;
    
      
@@ -41,9 +40,10 @@
             border-bottom-right-radius: 0;
             position: relative;
         }
+        
         .sections-wrapper_content{
             display: none;
-            width: 100vw;
+            width: 97vw;
             position: absolute;
         }
     }
